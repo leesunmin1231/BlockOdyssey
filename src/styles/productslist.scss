@@ -1,0 +1,45 @@
+main {
+  width: 97%;
+}
+section.main_content {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  .total_data {
+    width: 100%;
+    height: 70px;
+    line-height: 70px;
+    @include text-medium;
+  }
+  .products_box {
+    width: 100%;
+    flex: 1;
+    background-color: $white;
+    box-shadow: rgb(0 0 0 / 20%) 0px 2px 2px 1px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    @include text-medium;
+    .category {
+      display: flex;
+      height: 70px;
+      line-height: 70px;
+      text-align: center;
+      border-bottom: 1px solid nth($grey, 3);
+      @include product-list;
+    }
+    .products_list {
+      li {
+        list-style: none;
+        padding-left: 0px;
+        display: flex;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        border-bottom: 1px solid nth($grey, 3);
+        @include product-list;
+      }
+    }
+  }
+}

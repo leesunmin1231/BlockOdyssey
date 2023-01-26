@@ -1,6 +1,5 @@
 import React, { useState, KeyboardEvent } from 'react';
-
-const dropDownList: string[] = ['전체', '상품번호', '상품명', '브랜드', '상품내용', '가격', '평점', '재고'];
+import { category } from '../util/constantData';
 
 export default function SearchBar() {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -17,10 +16,10 @@ export default function SearchBar() {
     const { key } = e;
     switch (key) {
       case 'ArrowDown':
-        setSelectedSortType((selectedSortType + 1) % dropDownList.length);
+        setSelectedSortType((selectedSortType + 1) % category.length);
         break;
       case 'ArrowUp':
-        setSelectedSortType((selectedSortType - 1) % dropDownList.length);
+        setSelectedSortType((selectedSortType - 1) % category.length);
         break;
       default:
         break;
@@ -31,24 +30,24 @@ export default function SearchBar() {
       <div className="search_title">검색</div>
       <div className="dropdown_container" role="button" tabIndex={0} onKeyDown={moveSelectType}>
         <div className="select_sort_type">
-          <div className="selected">{dropDownList[selectedSortType]}</div>
+          <div className="selected">{category[selectedSortType].title}</div>
           <button type="button" className="drop_down_button" onClick={toggleDropDown}>
             {showDropdown ? <img alt="arrow" src="img/up.svg" /> : <img alt="arrow" src="img/down.svg" />}
           </button>
         </div>
         {showDropdown && (
           <div className="drop_down_box">
-            {dropDownList.map((type, index) =>
+            {category.map((type, index) =>
               index === selectedSortType ? (
-                <li key={type} className="select">
+                <li key={type.className} className="select">
                   <button type="button" onClick={() => clickTypeHandler(index)}>
-                    {type}
+                    {type.title}
                   </button>
                 </li>
               ) : (
-                <li key={type}>
+                <li key={type.className}>
                   <button type="button" onClick={() => clickTypeHandler(index)}>
-                    {type}
+                    {type.title}
                   </button>
                 </li>
               )
