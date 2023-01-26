@@ -15,25 +15,25 @@
 
 @mixin product-list {
   .number {
-    width: 150px;
+    width: 10%;
   }
   .name {
-    width: 350px;
+    width: 23%;
   }
   .brand {
-    width: 250px;
+    width: 17%;
   }
   .content {
     flex: 1;
   }
   .price {
-    width: 120px;
+    width: 8%;
   }
   .rating {
-    width: 100px;
+    width: 7%;
   }
   .stock {
-    width: 100px;
+    width: 7%;
   }
 }
 

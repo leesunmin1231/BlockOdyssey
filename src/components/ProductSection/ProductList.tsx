@@ -28,7 +28,9 @@ export default function ProductList({ productData }: { productData: ProductsResp
               <div className="number">{item.id}</div>
               <div className="name">{item.title}</div>
               <div className="brand">{item.brand}</div>
-              <div className="content">{item.description}</div>
+              <div className="content">
+                {item.description.length > 40 ? `${item.description.slice(0, 40)}...` : item.description}
+              </div>
               <div className="price">${item.price}</div>
               <div className="rating">{item.rating}</div>
               <div className="stock">{item.stock}</div>
