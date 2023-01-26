@@ -1,0 +1,20 @@
+@mixin display-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin text-small {
+  font-size: 12px;
+  font-weight: 400;
+}
+
+@mixin text-medium {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+@mixin text-large {
+  font-size: 20px;
+  font-weight: 600;
+}

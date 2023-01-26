@@ -1,7 +1,8 @@
 import React from 'react';
+import ProductSearchPage from './pages/ProductSearchPage';
 
 function App() {
-  return <div />;
+  return <ProductSearchPage />;
 }
 
 export default App;
