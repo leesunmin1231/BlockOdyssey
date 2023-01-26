@@ -1,4 +1,4 @@
-.select_sort_type {
+.select_box {
   height: 40px;
   width: 120px;
   margin-right: 20px;
@@ -54,25 +54,9 @@
       &:focus {
         outline: none;
       }
-      &:hover {
-        background-color: nth($grey, 4);
-      }
-      &:active {
-        filter: brightness(0.9);
-      }
-      &:first-of-type {
-        border-radius: 9px 9px 0px 0px;
-      }
-      &:last-of-type {
-        border-radius: 0px 0px 9px 9px;
-      }
-      &:first-of-type:nth-last-of-type(1) {
-        border-radius: 9px;
-      }
+      @include category-dropdown;
     }
-    &:hover {
-      background-color: nth($grey, 4);
-    }
+    @include category-dropdown;
     &.select {
       background-color: nth($grey, 3);
       button {

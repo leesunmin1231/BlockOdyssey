@@ -36,3 +36,21 @@
     width: 100px;
   }
 }
+
+@mixin category-dropdown {
+  &:first-of-type {
+    border-radius: 9px 9px 0px 0px;
+  }
+  &:last-of-type {
+    border-radius: 0px 0px 9px 9px;
+  }
+  &:first-of-type:nth-last-of-type(1) {
+    border-radius: 9px;
+  }
+  &:hover {
+    background-color: nth($grey, 4);
+  }
+  &:active {
+    filter: brightness(0.9);
+  }
+}

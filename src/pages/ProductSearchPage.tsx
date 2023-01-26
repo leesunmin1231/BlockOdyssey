@@ -1,10 +1,9 @@
 import React from 'react';
 import { useQuery } from 'react-query';
 import { httpGet } from '../util/http';
-import TopBar from '../components/TopBar';
-import SearchBar from '../components/SearchBar';
+import SearchBar from '../components/Header/SearchBar';
 import ProductList from '../components/ProductList';
-import '../styles/searchpage.scss';
+import '../styles/searchPage.scss';
 
 interface SystemError {
   code: string;
@@ -20,7 +19,7 @@ export default function ProductSearchPage() {
   return (
     <div className="search_page_wrapper">
       <header className="search_header">
-        <TopBar />
+        <div className="search_top_bar">상품 검색</div>
         <SearchBar />
       </header>
       {isLoading ? (
