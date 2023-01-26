@@ -1,8 +1,16 @@
 import React from 'react';
-import { ProductsResponseType } from '../util/http';
-import { category } from '../util/constantData';
+import { useSelector } from 'react-redux';
+import { ProductsResponseType } from '../../types/Product';
+import { category } from '../../util/constantData';
+import { PageInfo } from '../../redux/pageInfo';
+import { ReducerType } from '../../redux/rootReducer';
 
 export default function ProductList({ productData }: { productData: ProductsResponseType }) {
+  const pageInfo = useSelector<ReducerType, PageInfo>((state) => state.pageInfo);
+  const currentPageList = productData.products.slice(
+    pageInfo.startPage - 1,
+    pageInfo.startPage + pageInfo.rowCount - 1
+  );
   return (
     <section className="main_content">
       <div className="total_data">검색된 데이터: {productData.total}건</div>
@@ -15,7 +23,7 @@ export default function ProductList({ productData }: { productData: ProductsResp
           ))}
         </div>
         <div className="products_list">
-          {productData.products.map((item) => (
+          {currentPageList.map((item) => (
             <li key={item.id}>
               <div className="number">{item.id}</div>
               <div className="name">{item.title}</div>

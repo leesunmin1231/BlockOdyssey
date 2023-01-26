@@ -2,7 +2,8 @@ import React from 'react';
 import { useQuery } from 'react-query';
 import { httpGet } from '../util/http';
 import SearchBar from '../components/Header/SearchBar';
-import ProductList from '../components/ProductList';
+import ProductList from '../components/ProductSection/ProductList';
+import PageNavigation from '../components/ProductSection/PageNavigation';
 import '../styles/searchPage.scss';
 
 interface SystemError {
@@ -27,7 +28,7 @@ export default function ProductSearchPage() {
       ) : (
         <main>
           <ProductList productData={data} />
-          <footer className="page_navigation" />
+          <PageNavigation />
         </main>
       )}
     </div>
