@@ -17,9 +17,11 @@ export default function CategoryDropdown() {
     const { key } = e;
     switch (key) {
       case 'ArrowDown':
+        e.preventDefault();
         setSelectedSortType(countNextIndex(selectedSortType + 1, category.length));
         break;
       case 'ArrowUp':
+        e.preventDefault();
         setSelectedSortType(countNextIndex(selectedSortType - 1, category.length));
         break;
       default:
