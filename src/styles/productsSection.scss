@@ -48,6 +48,9 @@ section.main_content {
         display: flex;
         height: 100%;
         align-items: center;
+        div {
+          height: 28px;
+        }
         button.page_button {
           @include page-nav-button;
           background-color: $white;

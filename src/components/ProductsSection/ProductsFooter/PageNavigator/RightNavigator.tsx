@@ -14,7 +14,7 @@ export default function RightNavigator({ totalLength }: { totalLength: number })
     sessionStorage.setItem('page', String(getCurrentPage() + 1));
   };
   return (
-    <div>
+    <div className="page_navigator_vector">
       <button
         type="button"
         className="page_button"
