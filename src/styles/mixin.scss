@@ -37,6 +37,11 @@
   }
 }
 
+@mixin box-design {
+  border: 1px solid nth($grey, 2);
+  border-radius: 5px;
+}
+
 @mixin category-dropdown {
   &:first-of-type {
     border-radius: 9px 9px 0px 0px;
@@ -72,6 +77,9 @@
     }
     &:active {
       filter: brightness(0.7);
+    }
+    &:focus {
+      outline: none;
     }
     img {
       width: 24px;

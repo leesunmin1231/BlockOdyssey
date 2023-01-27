@@ -1,16 +1,3 @@
-main {
-  width: 97%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 100px;
-  .total_data {
-    width: 100%;
-    height: 70px;
-    line-height: 70px;
-    @include text-medium;
-  }
-}
 section.main_content {
   width: 100%;
   .products_box {
@@ -40,6 +27,17 @@ section.main_content {
         text-align: center;
         border-bottom: 1px solid nth($grey, 3);
         @include product-list;
+      }
+    }
+    footer.products_page_footer {
+      height: 70px;
+      .row_per_page_dropdown_container {
+        .row_per_page_select_box {
+          height: 40px;
+          width: 120px;
+          @include dropdown-button;
+          @include text-medium;
+        }
       }
     }
   }

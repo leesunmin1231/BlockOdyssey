@@ -1,5 +1,5 @@
 import React from 'react';
-import PageNavigation from './PageNavigation';
+import ProductsFooter from './ProductsFooter';
 import ProductsList from './ProductsList';
 import ProductsCategory from './ProductsCategory';
 
@@ -9,7 +9,7 @@ export default function ProductsSection() {
       <div className="products_box">
         <ProductsCategory />
         <ProductsList />
-        <PageNavigation />
+        <ProductsFooter />
       </div>
     </section>
   );

@@ -1,12 +1,4 @@
 header.search_header {
-  width: 97%;
-  height: 150px;
-  margin-top: 20px;
-  border-radius: 15px;
-  box-shadow: rgb(0 0 0 / 20%) 0px 2px 2px 1px;
-  background-color: white;
-  display: flex;
-  flex-direction: column;
   .search_top_bar {
     height: 80px;
     line-height: 80px;
@@ -24,12 +16,24 @@ header.search_header {
       width: 200px;
       @include text-large;
     }
+    .category_select_box {
+      height: 40px;
+      width: 120px;
+      margin-right: 20px;
+      @include box-design;
+      padding: 0 5px;
+      @include dropdown-button;
+      .selected {
+        padding: 0 5px;
+        line-height: 40px;
+        @include text-medium;
+      }
+    }
     input {
       height: 38px;
       width: 300px;
       margin-right: 20px;
-      border: 1px solid nth($grey, 2);
-      border-radius: 5px;
+      @include box-design;
       &:focus {
         outline: 1px solid nth($grey, 1);
       }

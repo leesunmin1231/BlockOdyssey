@@ -11,7 +11,6 @@ export default function ProductsList() {
     pageInfo.startPage - 1,
     pageInfo.startPage + pageInfo.rowCount - 1
   );
-  console.log(pageInfo);
   return (
     <div className="products_list">
       {currentPageList.map((item) => (
