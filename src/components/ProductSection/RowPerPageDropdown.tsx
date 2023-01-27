@@ -1,16 +1,13 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { PageInfo, addRowCount } from '../../redux/pageInfo';
+import { PageInfo } from '../../redux/pageInfo';
 import { ReducerType } from '../../redux/rootReducer';
 import { rowPerPage } from '../../util/constantData';
-import { useDropdown, ActionFunctionType } from '../../hooks/useDropdown';
+import { useDropdown } from '../../hooks/useDropdown';
 
 export default function RowPerPageDropdown() {
   const pageInfo = useSelector<ReducerType, PageInfo>((state) => state.pageInfo);
-  const { showDropdown, toggleDropDown, clickItemHandler, moveSelectItemHandler } = useDropdown(
-    rowPerPage,
-    addRowCount as ActionFunctionType
-  );
+  const { showDropdown, toggleDropDown, clickItemHandler, moveSelectItemHandler } = useDropdown(rowPerPage, '');
   return (
     <div className="row_per_page_dropdown_container" role="button" tabIndex={0} onKeyDown={moveSelectItemHandler}>
       <div className="row_per_page_select_box">

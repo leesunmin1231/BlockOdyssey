@@ -1,22 +1,23 @@
-import { useState, KeyboardEvent } from 'react';
-import { useDispatch } from 'react-redux';
-import { AnyAction } from 'redux';
+import { useState, KeyboardEvent, useEffect } from 'react';
 import countNextIndex from '../util/countNextIndex';
 
-export type ActionFunctionType = (selected: string | number) => AnyAction;
 type DropDownListType = string[] | number[];
 
-export const useDropdown = (dropdownList: DropDownListType, addAction: ActionFunctionType) => {
+export const useDropdown = (dropdownList: DropDownListType, listName: string) => {
   const [showDropdown, setShowDropdown] = useState(false);
-  const dispatch = useDispatch();
   const [selectedItemIndex, setSelectedItemIndex] = useState(0);
 
+  useEffect(() => {
+    if (!sessionStorage.getItem(`${listName}`)) {
+      sessionStorage.setItem(`${listName}`, String(dropdownList[0]));
+    }
+  }, []);
   const toggleDropDown = () => {
     setShowDropdown(!showDropdown);
   };
   const clickItemHandler = (index: number) => {
     setSelectedItemIndex(index);
-    dispatch(addAction(dropdownList[index]));
+    sessionStorage.setItem(`${listName}`, String(dropdownList[index]));
     setShowDropdown(false);
   };
   const moveSelectItemHandler = (e: KeyboardEvent<HTMLDivElement>) => {
@@ -36,7 +37,7 @@ export const useDropdown = (dropdownList: DropDownListType, addAction: ActionFun
         break;
     }
     setSelectedItemIndex(nextIndex);
-    dispatch(addAction(dropdownList[nextIndex]));
+    sessionStorage.setItem(`${listName}`, String(dropdownList[nextIndex]));
   };
   return { showDropdown, toggleDropDown, clickItemHandler, moveSelectItemHandler };
 };
