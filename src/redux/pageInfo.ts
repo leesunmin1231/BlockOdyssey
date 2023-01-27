@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { getCurrentRowPerPage } from '../util/getSessionStorage';
+import { getCurrentRowPerPage, getCurrentPage } from '../util/getSessionStorage';
 
 export interface PageInfo {
   rowCount: number;
@@ -8,7 +8,7 @@ export interface PageInfo {
 
 export const pageInfo = createSlice({
   name: 'pageInfo',
-  initialState: { rowCount: getCurrentRowPerPage(), startPage: 1 },
+  initialState: { rowCount: getCurrentRowPerPage(), startPage: getCurrentPage() },
   reducers: {
     addRowCount(state, action: PayloadAction<number>) {
       return { ...state, rowCount: action.payload };
