@@ -1,9 +1,11 @@
 import React from 'react';
 import { useQuery } from 'react-query';
+import { useDispatch, useSelector } from 'react-redux';
+import { ProductsData, addProductsList } from '../redux/productsList';
+import { ReducerType } from '../redux/rootReducer';
 import { httpGet } from '../util/http';
 import SearchBar from '../components/Header/SearchBar';
-import ProductList from '../components/ProductSection/ProductList';
-import PageNavigation from '../components/ProductSection/PageNavigation';
+import ProductList from '../components/ProductSection/ProductsSection';
 import '../styles/searchPage.scss';
 
 interface SystemError {
@@ -12,11 +14,15 @@ interface SystemError {
 }
 
 export default function ProductSearchPage() {
-  const { data, isLoading } = useQuery(['products'], () => httpGet('/products?limit=100'), {
+  const products = useSelector<ReducerType, ProductsData>((state) => state.productsList);
+  const dispatch = useDispatch();
+  const { isLoading } = useQuery(['products'], () => httpGet('/products?limit=100'), {
     refetchOnWindowFocus: true,
     staleTime: 3 * 60 * 1000,
     onError: (error: SystemError) => alert(error),
+    onSuccess: (data) => dispatch(addProductsList(data.products)),
   });
+
   return (
     <div className="search_page_wrapper">
       <header className="search_header">
@@ -27,8 +33,8 @@ export default function ProductSearchPage() {
         <div>loading...</div>
       ) : (
         <main>
-          <ProductList productData={data} />
-          <PageNavigation />
+          <div className="total_data">검색된 데이터: {products.total}건</div>
+          <ProductList />
         </main>
       )}
     </div>
