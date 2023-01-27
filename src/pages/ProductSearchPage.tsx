@@ -6,6 +6,7 @@ import { ReducerType } from '../redux/rootReducer';
 import { httpGet } from '../util/http';
 import SearchBar from '../components/Header/SearchBar';
 import ProductList from '../components/ProductSection/ProductsSection';
+import { getCurrentSearchOption, getCurrentSearchWord } from '../util/getSessionStorage';
 import '../styles/searchPage.scss';
 
 interface SystemError {
@@ -20,7 +21,10 @@ export default function ProductSearchPage() {
     refetchOnWindowFocus: true,
     staleTime: 3 * 60 * 1000,
     onError: (error: SystemError) => alert(error),
-    onSuccess: (data) => dispatch(addProductsList(data.products)),
+    onSuccess: (data) =>
+      dispatch(
+        addProductsList({ option: getCurrentSearchOption(), word: getCurrentSearchWord(), allProducts: data.products })
+      ),
   });
 
   return (

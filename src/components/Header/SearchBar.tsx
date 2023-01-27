@@ -1,15 +1,11 @@
 import React, { useState, ChangeEvent, KeyboardEvent } from 'react';
+import { useDispatch } from 'react-redux';
+import { addFilter } from '../../redux/productsList';
 import CategoryDropdown from './CategoryDropdown';
-
-const getCurrentSearchWord = (): string => {
-  const searchWord = sessionStorage.getItem('searchWord');
-  if (searchWord !== null) {
-    return searchWord;
-  }
-  return '';
-};
+import { getCurrentSearchOption, getCurrentSearchWord } from '../../util/getSessionStorage';
 
 export default function SearchBar() {
+  const dispatch = useDispatch();
   const [searchWord, setSearchWord] = useState(getCurrentSearchWord());
   const onChangeHandler = (e: ChangeEvent<HTMLInputElement>): void => {
     setSearchWord(e.target.value);
@@ -20,8 +16,9 @@ export default function SearchBar() {
       submitHandler();
     }
   };
-  const submitHandler = () => {
+  const submitHandler = (): void => {
     sessionStorage.setItem('searchWord', searchWord);
+    dispatch(addFilter({ option: getCurrentSearchOption(), word: getCurrentSearchWord() }));
   };
   return (
     <div className="search_bar">

@@ -7,7 +7,7 @@ import { ReducerType } from '../../redux/rootReducer';
 export default function ProductsList() {
   const pageInfo = useSelector<ReducerType, PageInfo>((state) => state.pageInfo);
   const productsData = useSelector<ReducerType, ProductsData>((state) => state.productsList);
-  const currentPageList = productsData.products.slice(
+  const currentPageList = productsData.filteredProducts.slice(
     pageInfo.startPage - 1,
     pageInfo.startPage + pageInfo.rowCount - 1
   );
