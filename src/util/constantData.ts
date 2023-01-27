@@ -8,3 +8,5 @@ export const category: { title: string; className: string }[] = [
   { title: '평점', className: 'rating' },
   { title: '재고', className: 'stock' },
 ];
+
+export const rowPerPage: number[] = [10, 20, 50];
