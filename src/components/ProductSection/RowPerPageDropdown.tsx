@@ -1,17 +1,24 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { PageInfo } from '../../redux/pageInfo';
-import { ReducerType } from '../../redux/rootReducer';
+import { useDispatch } from 'react-redux';
+import { addRowCount } from '../../redux/pageInfo';
 import { rowPerPage } from '../../util/constantData';
 import { useDropdown } from '../../hooks/useDropdown';
+import { getCurrentRowPerPage } from '../../util/getSessionStorage';
 
 export default function RowPerPageDropdown() {
-  const pageInfo = useSelector<ReducerType, PageInfo>((state) => state.pageInfo);
-  const { showDropdown, toggleDropDown, clickItemHandler, moveSelectItemHandler } = useDropdown(rowPerPage, '');
+  const dispatch = useDispatch();
+  const { showDropdown, toggleDropDown, clickItemHandler, moveSelectItemHandler } = useDropdown(
+    rowPerPage,
+    'rowPerPage'
+  );
+  const submitRowPerPage = (index: number) => {
+    clickItemHandler(index);
+    dispatch(addRowCount(getCurrentRowPerPage()));
+  };
   return (
     <div className="row_per_page_dropdown_container" role="button" tabIndex={0} onKeyDown={moveSelectItemHandler}>
       <div className="row_per_page_select_box">
-        <div className="selected">페이지당 행: {pageInfo.rowCount}</div>
+        <div className="selected">페이지당 행: {getCurrentRowPerPage()}</div>
         <button type="button" className="drop_down_button" onClick={toggleDropDown}>
           {showDropdown ? (
             <img alt="arrow" src="img/row-per-page-up.svg" />
@@ -23,15 +30,15 @@ export default function RowPerPageDropdown() {
       {showDropdown && (
         <div className="drop_down_box">
           {rowPerPage.map((rows, index) =>
-            rows === pageInfo.rowCount ? (
+            rows === getCurrentRowPerPage() ? (
               <li key={rows} className="select">
-                <button type="button" onClick={() => clickItemHandler(index)}>
+                <button type="button" onClick={() => submitRowPerPage(index)}>
                   {rows}
                 </button>
               </li>
             ) : (
               <li key={rows}>
-                <button type="button" onClick={() => clickItemHandler(index)}>
+                <button type="button" onClick={() => submitRowPerPage(index)}>
                   {rows}
                 </button>
               </li>

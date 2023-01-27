@@ -13,3 +13,11 @@ export const getCurrentSearchOption = (): string => {
   }
   return '';
 };
+
+export const getCurrentRowPerPage = (): number => {
+  const rowPerPage = sessionStorage.getItem('rowPerPage');
+  if (rowPerPage !== null) {
+    return Number(rowPerPage);
+  }
+  return 10;
+};
