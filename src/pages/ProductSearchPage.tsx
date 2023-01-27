@@ -34,7 +34,9 @@ export default function ProductSearchPage() {
         <SearchBar />
       </header>
       {isLoading ? (
-        <div>loading...</div>
+        <main>
+          <div id="loading_component">loading...</div>
+        </main>
       ) : (
         <main>
           <div className="total_data">검색된 데이터: {products.total}건</div>
