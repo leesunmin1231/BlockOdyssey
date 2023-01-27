@@ -1,6 +1,7 @@
 import React, { useState, ChangeEvent, KeyboardEvent } from 'react';
 import { useDispatch } from 'react-redux';
 import { addFilter } from '../../redux/productsList';
+import { addStartPage } from '../../redux/pageInfo';
 import CategoryDropdown from './CategoryDropdown';
 import { getCurrentSearchOption, getCurrentSearchWord } from '../../util/getSessionStorage';
 
@@ -18,6 +19,7 @@ export default function SearchBar() {
   };
   const submitHandler = (): void => {
     sessionStorage.setItem('searchWord', searchWord);
+    dispatch(addStartPage(1));
     dispatch(addFilter({ option: getCurrentSearchOption(), word: getCurrentSearchWord() }));
   };
   return (
