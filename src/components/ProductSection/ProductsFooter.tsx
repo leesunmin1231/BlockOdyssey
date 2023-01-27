@@ -7,6 +7,7 @@ export default function ProductsFooter() {
     <footer className="products_page_footer">
       <RowPerPageDropdown />
       <PageNavigator />
+      <div className="space">&nbsp;</div>
     </footer>
   );
 }

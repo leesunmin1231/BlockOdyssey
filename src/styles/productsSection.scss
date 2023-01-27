@@ -31,13 +31,55 @@ section.main_content {
     }
     footer.products_page_footer {
       height: 70px;
+      display: flex;
+      justify-content: center;
       .row_per_page_dropdown_container {
+        display: flex;
+        align-items: center;
         .row_per_page_select_box {
           height: 40px;
-          width: 120px;
+          width: 115px;
+          margin-right: 10px;
           @include dropdown-button;
           @include text-medium;
         }
+      }
+      nav.page_navigation {
+        display: flex;
+        height: 100%;
+        align-items: center;
+        button.page_button {
+          @include box-design;
+          width: 28px;
+          height: 28px;
+          padding: 0;
+          background-color: $white;
+          border-radius: 5px;
+          align-items: center;
+          margin: 0px 3px;
+          cursor: pointer;
+          &:hover {
+            background-color: nth($grey, 3);
+          }
+          &:active {
+            filter: brightness(0.7);
+          }
+          &:focus {
+            outline: none;
+          }
+          img {
+            width: 20px;
+            height: 26px;
+            border-radius: 5px;
+          }
+          img.collapse {
+            width: 14px;
+            height: 26px;
+          }
+        }
+      }
+      .space {
+        width: 125px;
       }
     }
   }

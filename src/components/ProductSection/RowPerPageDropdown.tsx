@@ -28,22 +28,24 @@ export default function RowPerPageDropdown() {
         </button>
       </div>
       {showDropdown && (
-        <div className="drop_down_box">
-          {rowPerPage.map((rows, index) =>
-            rows === getCurrentRowPerPage() ? (
-              <li key={rows} className="select">
-                <button type="button" onClick={() => submitRowPerPage(index)}>
-                  {rows}
-                </button>
-              </li>
-            ) : (
-              <li key={rows}>
-                <button type="button" onClick={() => submitRowPerPage(index)}>
-                  {rows}
-                </button>
-              </li>
-            )
-          )}
+        <div className="row_per_page_dropdown">
+          <div className="drop_down_box">
+            {rowPerPage.map((rows, index) =>
+              rows === getCurrentRowPerPage() ? (
+                <li key={rows} className="select">
+                  <button type="button" onClick={() => submitRowPerPage(index)}>
+                    {rows}
+                  </button>
+                </li>
+              ) : (
+                <li key={rows}>
+                  <button type="button" onClick={() => submitRowPerPage(index)}>
+                    {rows}
+                  </button>
+                </li>
+              )
+            )}
+          </div>
         </div>
       )}
     </div>
