@@ -8,8 +8,8 @@ export default function ProductsList() {
   const pageInfo = useSelector<ReducerType, PageInfo>((state) => state.pageInfo);
   const productsData = useSelector<ReducerType, ProductsData>((state) => state.productsList);
   const currentPageList = productsData.filteredProducts.slice(
-    pageInfo.startPage - 1,
-    pageInfo.startPage + pageInfo.rowCount - 1
+    (pageInfo.startPage - 1) * pageInfo.rowCount,
+    pageInfo.startPage * pageInfo.rowCount
   );
   return (
     <div className="products_list">

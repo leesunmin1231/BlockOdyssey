@@ -4,8 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { ProductsData, addProductsList } from '../redux/productsList';
 import { ReducerType } from '../redux/rootReducer';
 import { httpGet } from '../util/http';
-import SearchBar from '../components/Header/SearchBar';
-import ProductList from '../components/ProductSection/ProductsSection';
+import SearchBar from '../components/SearchBar';
+import ProductsSection from '../components/ProductsSection';
 import { getCurrentSearchOption, getCurrentSearchWord } from '../util/getSessionStorage';
 import '../styles/searchPage.scss';
 
@@ -38,7 +38,7 @@ export default function ProductSearchPage() {
       ) : (
         <main>
           <div className="total_data">검색된 데이터: {products.total}건</div>
-          <ProductList />
+          <ProductsSection />
         </main>
       )}
     </div>

@@ -21,3 +21,11 @@ export const getCurrentRowPerPage = (): number => {
   }
   return 10;
 };
+
+export const getCurrentPage = (): number => {
+  const page = sessionStorage.getItem('page');
+  if (page !== null) {
+    return Number(page);
+  }
+  return 1;
+};

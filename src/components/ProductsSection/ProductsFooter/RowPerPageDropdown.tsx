@@ -1,9 +1,9 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { addRowCount } from '../../redux/pageInfo';
-import { rowPerPage } from '../../util/constantData';
-import { useDropdown } from '../../hooks/useDropdown';
-import { getCurrentRowPerPage } from '../../util/getSessionStorage';
+import { addRowCount } from '../../../redux/pageInfo';
+import { rowPerPage } from '../../../util/constantData';
+import { useDropdown } from '../../../hooks/useDropdown';
+import { getCurrentRowPerPage } from '../../../util/getSessionStorage';
 
 export default function RowPerPageDropdown() {
   const dispatch = useDispatch();

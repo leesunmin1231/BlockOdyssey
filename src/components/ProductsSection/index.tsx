@@ -1,6 +1,6 @@
 import React from 'react';
 import ProductsFooter from './ProductsFooter';
-import ProductsList from './ProductsList';
+import ProductsList from './ProductList';
 import ProductsCategory from './ProductsCategory';
 
 export default function ProductsSection() {

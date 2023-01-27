@@ -42,6 +42,29 @@
   border-radius: 5px;
 }
 
+@mixin page-nav-button {
+  @include box-design;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border-radius: 5px;
+  align-items: center;
+  margin: 0px 3px;
+  cursor: pointer;
+  &:focus {
+    outline: none;
+  }
+  img {
+    width: 20px;
+    height: 26px;
+    border-radius: 5px;
+  }
+  img.collapse {
+    width: 14px;
+    height: 26px;
+  }
+}
+
 @mixin category-dropdown {
   &:first-of-type {
     border-radius: 9px 9px 0px 0px;

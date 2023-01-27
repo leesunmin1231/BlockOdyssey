@@ -49,33 +49,30 @@ section.main_content {
         height: 100%;
         align-items: center;
         button.page_button {
-          @include box-design;
-          width: 28px;
-          height: 28px;
-          padding: 0;
+          @include page-nav-button;
           background-color: $white;
-          border-radius: 5px;
-          align-items: center;
-          margin: 0px 3px;
-          cursor: pointer;
-          &:hover {
-            background-color: nth($grey, 3);
+          &:hover:enabled {
+            background-color: nth($grey, 4);
           }
-          &:active {
+          &:active:enabled {
             filter: brightness(0.7);
           }
-          &:focus {
-            outline: none;
+          &:disabled {
+            opacity: 0.4;
           }
-          img {
-            width: 20px;
-            height: 26px;
-            border-radius: 5px;
-          }
-          img.collapse {
-            width: 14px;
-            height: 26px;
-          }
+        }
+        button.page_button_selected {
+          @include page-nav-button;
+          background-color: nth($grey, 3);
+          border: 1px solid nth($grey, 1);
+        }
+        div > span.ellipsis {
+          display: inline-block;
+          height: 28px;
+          width: 28px;
+          margin: 0px 3px;
+          text-align: center;
+          line-height: 28px;
         }
       }
       .space {
