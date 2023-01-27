@@ -1,6 +1,7 @@
 import React from 'react';
 import { searchOption } from '../../util/constantData';
 import { useDropdown } from '../../hooks/useDropdown';
+import { getCurrentSearchOption } from '../../util/getSessionStorage';
 
 export default function CategoryDropdown() {
   const { showDropdown, toggleDropDown, clickItemHandler, moveSelectItemHandler } = useDropdown(
@@ -11,7 +12,7 @@ export default function CategoryDropdown() {
   return (
     <div className="category_dropdown_container" role="button" tabIndex={0} onKeyDown={moveSelectItemHandler}>
       <div className="category_select_box">
-        <div className="selected">{sessionStorage.getItem('searchOption')}</div>
+        <div className="selected">{getCurrentSearchOption()}</div>
         <button type="button" className="drop_down_button" onClick={toggleDropDown}>
           {showDropdown ? (
             <img alt="arrow" src="img/search-option-up.svg" />

@@ -11,7 +11,7 @@ export const getCurrentSearchOption = (): string => {
   if (searchWord !== null) {
     return searchWord;
   }
-  return '';
+  return '전체';
 };
 
 export const getCurrentRowPerPage = (): number => {
