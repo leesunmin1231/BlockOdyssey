@@ -33,7 +33,7 @@ export default function PageNavigator() {
         disableTriggerPage={1}
       />
       <ArrowButton
-        clickHandler={() => pageNavigationHandler(1)}
+        clickHandler={() => pageNavigationHandler(getCurrentPage() - 1)}
         imgSrc="img/chevron-left.svg"
         imgClassName="chevron"
         disableTriggerPage={1}
@@ -61,7 +61,7 @@ export default function PageNavigator() {
         disableTriggerPage={totalPages}
       />
       <ArrowButton
-        clickHandler={() => pageNavigationHandler(getCurrentPage() + 1)}
+        clickHandler={() => pageNavigationHandler(totalPages)}
         imgSrc="img/arrow-collapse-right.svg"
         imgClassName="collapse"
         disableTriggerPage={totalPages}
