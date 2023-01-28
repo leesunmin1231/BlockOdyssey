@@ -23,6 +23,7 @@ const getMiddleButtons = (currentPage: number, totalPages: number) => {
 };
 
 export const getPaginationButtons = (totalPages: number, currentPage: number) => {
+  if (totalPages <= 6) return getRangeList(1, totalPages);
   const frontButtons = getFrontButtons(currentPage);
   const middleButtons = getMiddleButtons(currentPage, totalPages);
   const endButtons = getEndButtons(currentPage, totalPages);
