@@ -48,9 +48,6 @@ section.main_content {
         display: flex;
         height: 100%;
         align-items: center;
-        div {
-          height: 28px;
-        }
         button.page_button {
           @include page-nav-button;
           background-color: $white;
@@ -69,7 +66,7 @@ section.main_content {
           background-color: nth($grey, 3);
           border: 1px solid nth($grey, 1);
         }
-        div > span.ellipsis {
+        span.ellipsis {
           display: inline-block;
           height: 28px;
           width: 28px;
