@@ -3,7 +3,7 @@ const getRangeList = (start: number, end: number) =>
 
 const getFrontButtons = (currentPage: number) => {
   if (currentPage - 1 < 4) {
-    return ['1', '2', '3', '4', '5'];
+    return getRangeList(1, 5);
   }
   return ['1', '...'];
 };
@@ -17,7 +17,7 @@ const getEndButtons = (currentPage: number, totalPages: number) => {
 
 const getMiddleButtons = (currentPage: number, totalPages: number) => {
   if (totalPages - currentPage >= 4 && currentPage - 1 >= 4) {
-    return [`${currentPage - 1}`, `${currentPage}`, `${currentPage + 1}`];
+    return getRangeList(currentPage - 1, currentPage + 1);
   }
   return [];
 };
