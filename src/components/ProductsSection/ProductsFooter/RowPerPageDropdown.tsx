@@ -26,31 +26,19 @@ export default function RowPerPageDropdown() {
       <div className="row_per_page_select_box">
         <div className="selected">페이지당 행: {getCurrentRowPerPage()}</div>
         <button type="button" className="drop_down_button" onClick={toggleDropDown}>
-          {showDropdown ? (
-            <img alt="arrow" src="img/row-per-page-up.svg" />
-          ) : (
-            <img alt="arrow" src="img/row-per-page-down.svg" />
-          )}
+          <img alt="arrow" src={showDropdown ? 'img/row-per-page-up.svg' : 'img/row-per-page-down.svg'} />
         </button>
       </div>
       {showDropdown && (
         <div className="row_per_page_dropdown">
           <div className="drop_down_box">
-            {rowPerPage.map((rows, index) =>
-              rows === getCurrentRowPerPage() ? (
-                <li key={rows} className="select">
-                  <button type="button" onClick={() => submitRowPerPage(index)}>
-                    {rows}
-                  </button>
-                </li>
-              ) : (
-                <li key={rows}>
-                  <button type="button" onClick={() => submitRowPerPage(index)}>
-                    {rows}
-                  </button>
-                </li>
-              )
-            )}
+            {rowPerPage.map((rows, index) => (
+              <li key={rows} className={rows === getCurrentRowPerPage() ? 'select' : 'non_select'}>
+                <button type="button" onClick={() => submitRowPerPage(index)}>
+                  {rows}
+                </button>
+              </li>
+            ))}
           </div>
         </div>
       )}

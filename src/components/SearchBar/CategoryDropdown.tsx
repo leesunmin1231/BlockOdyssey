@@ -14,30 +14,18 @@ export default function CategoryDropdown() {
       <div className="category_select_box">
         <div className="selected">{getCurrentSearchOption()}</div>
         <button type="button" className="drop_down_button" onClick={toggleDropDown}>
-          {showDropdown ? (
-            <img alt="arrow" src="img/search-option-up.svg" />
-          ) : (
-            <img alt="arrow" src="img/search-option-down.svg" />
-          )}
+          <img alt="arrow" src={showDropdown ? 'img/search-option-up.svg' : 'img/search-option-down.svg'} />
         </button>
       </div>
       {showDropdown && (
         <div className="drop_down_box">
-          {searchOption.map((type, index) =>
-            type === sessionStorage.getItem('searchOption') ? (
-              <li key={type} className="select">
-                <button type="button" onClick={() => clickItemHandler(index)}>
-                  {type}
-                </button>
-              </li>
-            ) : (
-              <li key={type}>
-                <button type="button" onClick={() => clickItemHandler(index)}>
-                  {type}
-                </button>
-              </li>
-            )
-          )}
+          {searchOption.map((type, index) => (
+            <li key={type} className={type === getCurrentSearchOption() ? 'select' : 'non_select'}>
+              <button type="button" onClick={() => clickItemHandler(index)}>
+                {type}
+              </button>
+            </li>
+          ))}
         </div>
       )}
     </div>
