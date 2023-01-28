@@ -20,6 +20,7 @@ export default function SearchBar() {
   const submitHandler = (): void => {
     sessionStorage.setItem('searchWord', searchWord);
     dispatch(addStartPage(1));
+    sessionStorage.setItem('page', '1');
     dispatch(addFilter({ option: getCurrentSearchOption(), word: getCurrentSearchWord() }));
   };
   return (
