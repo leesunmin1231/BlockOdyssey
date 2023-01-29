@@ -7,7 +7,7 @@ import { httpGet } from '../util/http';
 import SearchBar from '../components/SearchBar';
 import ProductsSection from '../components/ProductsSection';
 import { getCurrentSearchOption, getCurrentSearchWord } from '../util/getSessionStorage';
-import '../styles/searchPage.scss';
+import '../styles/searchpage.scss';
 
 interface SystemError {
   code: string;
