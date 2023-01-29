@@ -19,9 +19,9 @@ export default function SearchBar() {
   };
   const submitHandler = (): void => {
     sessionStorage.setItem('searchWord', searchWord);
-    dispatch(addStartPage(1));
-    sessionStorage.setItem('page', '1');
     dispatch(addFilter({ option: getCurrentSearchOption(), word: getCurrentSearchWord() }));
+    sessionStorage.setItem('page', '1');
+    dispatch(addStartPage(1));
   };
   return (
     <div className="search_bar">
